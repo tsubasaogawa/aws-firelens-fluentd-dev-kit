@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+    logging:
+        build: .
+        image: "tsubasaogawa/sample-fluentd:v0.1"
+        container_name: "sample-fluentd"

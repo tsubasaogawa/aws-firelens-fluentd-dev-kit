@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+    fluentd_dev_kit:
+        build: .
+        image: "tsubasaogawa/aws-firelens-fluentd-dev-kit:v0.1"
+        container_name: "fluentd-dev-kit"
