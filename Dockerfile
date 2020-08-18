@@ -4,7 +4,8 @@ FROM tsubasaogawa/sample-fluentd:v0.1
 LABEL maintainer="tsubasaogawa" \
     description="Simple development kit for aws firelens fluentd container"
 
-USER fluent
+ARG FLUENT_USER="fluent"
+USER $FLUENT_USER
 
 # Rewrite configuration file name if you need
 RUN unset FLUENTD_CONF
