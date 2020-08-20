@@ -14,13 +14,7 @@ ENV FLUENTD_CONF $FLUENT_CONF
 
 # Add source section
 ARG FLUENT_HOME="/fluentd"
-RUN sed \
-    -e '1i<source>' \
-    -e '1i  @type forward' \
-    -e '1i  port 24224' \
-    -e '1i  bind 0.0.0.0' \
-    -e '1i</source>' \
-    "$FLUENT_HOME/etc/$FLUENTD_CONF" > /var/tmp/$FLUENTD_CONF.in_progress
-
-ADD in_dummy.conf /var/tmp
-RUN cat /var/tmp/in_dummy.conf /var/tmp/$FLUENTD_CONF.in_progress > $FLUENT_HOME/etc/$FLUENTD_CONF
+ADD source.conf /var/tmp
+RUN cat /var/tmp/source.conf $FLUENT_HOME/etc/$FLUENTD_CONF > /var/tmp/$FLUENTD_CONF.in_progress \
+    && mv /var/tmp/$FLUENTD_CONF.in_progress $FLUENT_HOME/etc/$FLUENTD_CONF \
+    && rm -f /var/tmp/*
