@@ -57,3 +57,13 @@ $ docker-compose logs
   :
 fluentd-dev-kit    | 2020-08-16 14:19:07.526814774 +0000 foo-firelens-bar: {"message":"hello world","foo":"bar"}
 ```
+
+## Arguments
+
+You can edit `args` section in docker-compose.yml.
+
+|Argument name|Description|
+|-------------|-----------|
+|FLUENT_USER  |User name. Try `fluent` if cannot run container|
+|FLUENT_CONF  |Custom fluentd configuration file name. (It is defined in `config-file-value` in task definition.)|
+|FLUENT_HOME  |Fluentd home directory.|
