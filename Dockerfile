@@ -8,8 +8,9 @@ ARG FLUENT_USER="fluent"
 USER $FLUENT_USER
 
 # Rewrite configuration file name if you need
+ARG FLUENT_CONF="fluent-custom.conf"
 RUN unset FLUENTD_CONF
-ENV FLUENTD_CONF "fluent-custom.conf"
+ENV FLUENTD_CONF $FLUENT_CONF
 
 # Add source section
 ARG FLUENT_HOME="/fluentd"
@@ -23,4 +24,3 @@ RUN sed \
 
 ADD in_dummy.conf /var/tmp
 RUN cat /var/tmp/in_dummy.conf /var/tmp/$FLUENTD_CONF.in_progress > $FLUENT_HOME/etc/$FLUENTD_CONF
-
