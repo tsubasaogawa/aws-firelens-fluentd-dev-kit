@@ -1,14 +1,14 @@
 # aws-firelens-fluentd-dev-kit
 
-This simple development kit adds &lt;source&gt; sections in your custom fluentd configuration.
+This simple development kit runs your custom fluentd adding &lt;source&gt; sections to configuration.
 
-## Problems to develop Firelens container
+## Problems to develop Firelens fluentd container
 
 ### Cannot set &lt;source&gt; section which listens localhost in fluentd conf file
 
-&lt;source&gt; section listening localhost will be defined by Firelens automatically. ECS will show error when we also define it in custom fluentd configuration.
+Firelens will define &lt;source&gt; section listening localhost to fluentd configuration. When we define it too for local debug, Fluentd may show error: `unexpected error error_class=Errno::EADDRINUSE error=#<Errno::EADDRINUSE: Address in use - bind(2) for "0.0.0.0" port 24224`.
 
-It is hard to debug container because fluentd does not listen localhost in local machine.
+It is hard to write configuration because fluentd does not listen localhost in local machine.
 
 ## Usage
 
