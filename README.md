@@ -67,3 +67,16 @@ You can edit `args` section in docker-compose.yml.
 |FLUENT_USER  |User name. Try `fluent` if cannot run container|
 |FLUENT_CONF  |Custom fluentd configuration file name. (It is defined in `config-file-value` in task definition.)|
 |FLUENT_HOME  |Fluentd home directory.|
+
+## NOTE
+
+### Adding environment variables
+
+You can create `.env` file to the same directory as docker-compose.yml.
+
+```
+# .env
+DATADOG_API_KEY=foo
+...
+```
+
